@@ -16,7 +16,7 @@ def on_fetch(request):
         </body>
     </html>"""
     data = html_template.format(ip_address=ip_address)
-    headers = Headers(
+    headers = Headers.new(
         {
             "Content-Type": "text/html;charset=UTF-8",
         }
