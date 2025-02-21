@@ -2,7 +2,8 @@ from js import Headers, Response
 
 
 def on_fetch(request):
-    data = f"""<!DOCTYPE html>
+    ip_address = request.headers.get("CF-Connecting-IP")
+    html_template = """<!DOCTYPE html>
     <html lang="ko">
         <head>
             <meta charset="UTF-8" />
@@ -11,8 +12,13 @@ def on_fetch(request):
         </head>
         
         <body>
-            <span id="ip">{request.headers.get("CF-Connecting-IP")}</span>
+            <span id="ip">{ip_address}</span>
         </body>
     </html>"""
-    headers = Headers.new({"Content-Type": "text/html;charset=UTF-8"}.items())
+    data = html_template.format(ip_address=ip_address)
+    headers = Headers(
+        {
+            "Content-Type": "text/html;charset=UTF-8",
+        }
+    )
     return Response.new(data, headers=headers)
