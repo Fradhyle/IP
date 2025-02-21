@@ -1,2 +1,2 @@
 # IP
-Simple 'Show my IP' webapge
+Simple 'Show my IP' webpage to run on Cloudflare Workers
