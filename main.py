@@ -11,8 +11,8 @@ def on_fetch(request):
         </head>
         
         <body>
-            <span id="ip">{request.client.host}</span>
+            <span id="ip">{request.headers.get("CF-Connecting-IP")}</span>
         </body>
     </html>"""
     headers = Headers.new({"Content-Type": "text/html;charset=UTF-8"}.items())
-    return Response(data, headers=headers)
+    return Response.new(data, headers=headers)
