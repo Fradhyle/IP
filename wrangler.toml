@@ -1,4 +1,6 @@
 # wrangler.toml (wrangler v3.88.0^)
+name = "ip"
+compatibility_date = "2025-02-21"
 compatibility_flags = [ "python_workers" ]
 [observability.logs]
 enabled = true
