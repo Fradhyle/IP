@@ -15,4 +15,4 @@ def on_fetch(request):
         </body>
     </html>"""
     headers = Headers.new({"Content-Type": "text/html;charset=UTF-8"}.items())
-    return Response(data, headers=headers
+    return Response(data, headers=headers)
