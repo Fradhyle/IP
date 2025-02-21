@@ -1,4 +1,4 @@
 # wrangler.toml (wrangler v3.88.0^)
-compatibility_flags = [ "formdata_parser_supports_files" ]
+compatibility_flags = [ "python_workers" ]
 [observability.logs]
 enabled = true
