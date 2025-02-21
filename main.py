@@ -1,10 +1,7 @@
-from fastapi import FastAPI, Request, Response
-
-app = FastAPI()
+from js import Headers, Response
 
 
-@app.get("/")
-def root(request: Request):
+def on_fetch(request):
     data = f"""<!DOCTYPE html>
     <html lang="ko">
         <head>
@@ -17,4 +14,5 @@ def root(request: Request):
             <span id="ip">{request.client.host}</span>
         </body>
     </html>"""
-    return Response(content=data, media_type="text/html")
+    headers = Headers.new({"Content-Type": "text/html;charset=UTF-8"}.items())
+    return Response(data, headers=headers
