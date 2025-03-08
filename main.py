@@ -1,7 +1,10 @@
+from urllib.parse import urlparse
+
 from js import Headers, Response
 
 
 def on_fetch(request):
+    url = urlparse(request.url)
     ip_address = request.headers.get("CF-Connecting-IP")
     html_template = """<!DOCTYPE html>
     <html lang="ko">
@@ -21,4 +24,8 @@ def on_fetch(request):
             "Content-Type": "text/html;charset=UTF-8",
         }
     )
+
+    if url.path == "/favicon.ico":
+        return Response.new("")
+
     return Response.new(data, headers=headers)
