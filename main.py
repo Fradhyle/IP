@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 from js import Headers, Response
 
 
-def on_fetch(request):
+async def on_fetch(request):
     url = urlparse(request.url)
     ip_address = request.headers.get("CF-Connecting-IP")
     html_template = """<!DOCTYPE html>
