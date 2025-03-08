@@ -22,7 +22,7 @@ def on_fetch(request):
     headers = Headers.new(
         {
             "Content-Type": "text/html;charset=UTF-8",
-        }
+        }.items()
     )
 
     if url.path == "/favicon.ico":
