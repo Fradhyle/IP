@@ -1,6 +1,6 @@
 from urllib.parse import urlparse
 
-from js import Headers, Response
+from workers import Headers, Response
 
 
 async def on_fetch(request):
